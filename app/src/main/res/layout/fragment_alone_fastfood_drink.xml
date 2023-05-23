@@ -19,18 +19,18 @@
             android:id="@+id/FF_drink_item1"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_marginTop="104dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
 
-            android:src="@drawable/softice"
+            android:src="@drawable/remo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -40,7 +40,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="불고기버거 세트"
+                android:text="레몬맥피즈"
                 android:gravity="center"
                 android:layout_weight="1">
             </TextView>
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6200원"
+                android:text="2000원"
                 android:gravity="center"
                 android:layout_weight="1">
             </TextView>
@@ -75,18 +75,18 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginTop="104dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/sunday"
+            android:src="@drawable/latte"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="2"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -96,14 +96,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="치즈버거세트"></TextView>
+                android:text="카페라떼"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="5800원"></TextView>
+                android:text="3000원"></TextView>
 
 
         </LinearLayout>
@@ -127,7 +127,7 @@
             android:id="@+id/FF_drink_item3"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
@@ -140,7 +140,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_weight="2"
 
             android:orientation="horizontal"
@@ -151,14 +151,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="크리스피버거"></TextView>
+                android:text="콜라"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="7000원"></TextView>
+                android:text="1500원"></TextView>
 
 
         </LinearLayout>
@@ -182,11 +182,11 @@
             android:id="@+id/FF_drink_item4"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/sidar"
+            android:src="@drawable/water"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/FF_drink_item2"
@@ -198,7 +198,7 @@
             android:layout_height="match_parent"
 
             android:layout_weight="2"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -207,14 +207,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="치킨치즈버거"></TextView>
+                android:text="생수"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="6000원"></TextView>
+                android:text="1100원"></TextView>
 
 
         </LinearLayout>

@@ -6,26 +6,20 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.kiosk_help_app.ListViewItem;
 import com.example.kiosk_help_app.ListviewAdapter;
 import com.example.kiosk_help_app.MainActivity;
-import com.example.kiosk_help_app.OnMenuPickerSetListener;
 import com.example.kiosk_help_app.PayCheckActivity;
 import com.example.kiosk_help_app.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class AloneFastfoodStoreActivity extends AppCompatActivity {
 
@@ -98,27 +92,27 @@ public class AloneFastfoodStoreActivity extends AppCompatActivity {
         TextView cost_sum = findViewById(R.id.alone_ff_cost_sum);
         switch (item){
             case 1:
-                data.add(new ListViewItem("더블 불고기 버거세트", "8900"));
+                data.add(new ListViewItem("불고기버거 ", "2500"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 8900;
+                menu_cost_sum += 2500;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 2:
-                data.add(new ListViewItem("치즈버거 세트", "7400"));
+                data.add(new ListViewItem("맥너겟", "2500"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 7400;
+                menu_cost_sum += 2500;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 3:
-                data.add(new ListViewItem("초코 선디", "2500"));
+                data.add(new ListViewItem("바닐라선데이", "2000"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 9900;
+                menu_cost_sum += 2000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 4:
-                data.add(new ListViewItem("치즈볼 4개", "3200"));
+                data.add(new ListViewItem("슈림프스낵랩", "2500"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 8500;
+                menu_cost_sum += 2500;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
         }
@@ -128,27 +122,27 @@ public class AloneFastfoodStoreActivity extends AppCompatActivity {
         TextView cost_sum = findViewById(R.id.alone_ff_cost_sum);
         switch (item){
             case 1:
-                data.add(new ListViewItem("불고기 버거세트", "6200"));
+                data.add(new ListViewItem("불고기버거", "2500"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 6200;
+                menu_cost_sum += 2500;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 2:
-                data.add(new ListViewItem("치즈 버거세트", "5800"));
+                data.add(new ListViewItem("상하이버거", "5800"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 6800;
+                menu_cost_sum += 5800;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 3:
-                data.add(new ListViewItem("크리스피 버거세트", "7000"));
+                data.add(new ListViewItem("빅맥", "5800"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 7000;
+                menu_cost_sum += 5800;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 4:
-                data.add(new ListViewItem("치킨치즈 버거세트", "6000"));
+                data.add(new ListViewItem("슈슈버거", "6000"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 8500;
+                menu_cost_sum += 6000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
         }
@@ -158,15 +152,15 @@ public class AloneFastfoodStoreActivity extends AppCompatActivity {
         TextView cost_sum = findViewById(R.id.alone_ff_cost_sum);
         switch (item){
             case 1:
-                data.add(new ListViewItem("소프트 아이스크림", "2000"));
+                data.add(new ListViewItem("레몬맥피즈", "2000"));
                 myAdapter.notifyDataSetChanged();
                 menu_cost_sum += 2000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 2:
-                data.add(new ListViewItem("선데이 아이스크림", "2500"));
+                data.add(new ListViewItem("카페라떼", "3000"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 2500;
+                menu_cost_sum += 3000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 3:
@@ -176,9 +170,9 @@ public class AloneFastfoodStoreActivity extends AppCompatActivity {
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 4:
-                data.add(new ListViewItem("사이다", "1500"));
+                data.add(new ListViewItem("생수", "1100"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 1500;
+                menu_cost_sum += 1100;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
         }
@@ -188,27 +182,27 @@ public class AloneFastfoodStoreActivity extends AppCompatActivity {
         TextView cost_sum = findViewById(R.id.alone_ff_cost_sum);
         switch (item){
             case 1:
-                data.add(new ListViewItem("치즈 볼", "3000"));
-                myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 3000;
-                cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
-                break;
-            case 2:
-                data.add(new ListViewItem("치즈 스틱", "2500"));
+                data.add(new ListViewItem("맥너겟", "2500"));
                 myAdapter.notifyDataSetChanged();
                 menu_cost_sum += 2500;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
-            case 3:
-                data.add(new ListViewItem("양념 감자", "2000"));
+            case 2:
+                data.add(new ListViewItem("치즈스틱", "2400"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 2000;
+                menu_cost_sum += 2400;
+                cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
+                break;
+            case 3:
+                data.add(new ListViewItem("치킨텐더", "3000"));
+                myAdapter.notifyDataSetChanged();
+                menu_cost_sum += 3000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 4:
-                data.add(new ListViewItem("감자 튀김", "1500"));
+                data.add(new ListViewItem("감자 튀김", "1800"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 1500;
+                menu_cost_sum += 1800;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
         }
@@ -218,27 +212,27 @@ public class AloneFastfoodStoreActivity extends AppCompatActivity {
         TextView cost_sum = findViewById(R.id.alone_ff_cost_sum);
         switch (item){
             case 1:
-                data.add(new ListViewItem("불고기 버거", "5200"));
+                data.add(new ListViewItem("자두칠러", "3000"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 5200;
+                menu_cost_sum += 3000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 2:
-                data.add(new ListViewItem("치즈 버거", "4800"));
+                data.add(new ListViewItem("한라봉칠러", "3000"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 4800;
+                menu_cost_sum += 3000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 3:
-                data.add(new ListViewItem("크리스피 버거", "6000"));
+                data.add(new ListViewItem("맥플러리", "2500"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 6000;
+                menu_cost_sum += 2500;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
             case 4:
-                data.add(new ListViewItem("치킨치즈 버거", "5000"));
+                data.add(new ListViewItem("딸기쉐이크", "2000"));
                 myAdapter.notifyDataSetChanged();
-                menu_cost_sum += 5000;
+                menu_cost_sum += 2000;
                 cost_sum.setText("총 메뉴 가격 : " + Integer.toString(menu_cost_sum));
                 break;
         }

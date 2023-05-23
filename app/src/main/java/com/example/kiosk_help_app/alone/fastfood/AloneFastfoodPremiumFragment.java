@@ -15,6 +15,7 @@ import com.example.kiosk_help_app.R;
  * Use the {@link AloneFastfoodPremiumFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+//버거 화면
 public class AloneFastfoodPremiumFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match

@@ -20,17 +20,17 @@
                 android:id="@+id/FF_side_item1"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginStart="44dp"
+                android:layout_marginStart="84dp"
                 android:layout_marginTop="60dp"
                 android:adjustViewBounds="true"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter"
 
-                android:src="@drawable/cheeseball"
+                android:src="@drawable/nurget"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             <LinearLayout
-                android:layout_marginStart="44dp"
+                android:layout_marginStart="84dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -40,7 +40,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="치즈볼 4개"
+                    android:text="맥너겟"
                     android:gravity="center"
                     android:layout_weight="1">
                 </TextView>
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="6200원"
+                    android:text="2500원"
                     android:gravity="center"
                     android:layout_weight="1">
                 </TextView>
@@ -75,7 +75,7 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="44dp"
+                android:layout_marginEnd="4dp"
                 android:adjustViewBounds="true"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter"
@@ -86,7 +86,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="44dp"
+                android:layout_marginEnd="4dp"
                 android:layout_weight="2"
                 android:orientation="horizontal"
                 android:weightSum="2">
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="5800원"></TextView>
+                    android:text="2400원"></TextView>
 
 
             </LinearLayout>
@@ -127,11 +127,11 @@
                 android:id="@+id/FF_side_item3"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginStart="44dp"
+                android:layout_marginStart="84dp"
                 android:adjustViewBounds="true"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter"
-                android:src="@drawable/seasoning"
+                android:src="@drawable/tender"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/FF_side_item1"
@@ -140,7 +140,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginStart="44dp"
+                android:layout_marginStart="84dp"
                 android:layout_weight="2"
 
                 android:orientation="horizontal"
@@ -151,14 +151,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="양념감자"></TextView>
+                    android:text="치킨텐더"></TextView>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="2000원"></TextView>
+                    android:text="3000원"></TextView>
 
 
             </LinearLayout>
@@ -181,7 +181,7 @@
                 android:id="@+id/FF_side_item4"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
-                android:layout_marginEnd="44dp"
+                android:layout_marginEnd="4dp"
                 android:adjustViewBounds="true"
                 android:backgroundTint="@color/white"
                 android:scaleType="fitCenter"
@@ -196,7 +196,7 @@
                 android:layout_height="match_parent"
 
                 android:layout_weight="2"
-                android:layout_marginEnd="44dp"
+                android:layout_marginEnd="4dp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 

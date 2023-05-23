@@ -21,19 +21,19 @@
             android:id="@+id/FF_whopper_item1"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_marginTop="104dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
 
-            android:src="@drawable/bulgogi_dan"
+            android:src="@drawable/peach"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <LinearLayout
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="불고기버거 세트"
+                android:text="자두칠러"
                 android:gravity="center"
                 android:layout_weight="1">
             </TextView>
@@ -51,7 +51,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6200원"
+                android:text="3000원"
                 android:gravity="center"
                 android:layout_weight="1">
             </TextView>
@@ -78,18 +78,18 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginTop="104dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/cheese_dan"
+            android:src="@drawable/jeju"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="2"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -99,14 +99,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="치즈버거세트"></TextView>
+                android:text="한라봉칠러"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="5800원"></TextView>
+                android:text="3000원"></TextView>
 
 
         </LinearLayout>
@@ -131,11 +131,11 @@
             android:id="@+id/FF_whopper_item3"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/crispy_dan"
+            android:src="@drawable/oreo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/FF_whopper_item1"
@@ -144,7 +144,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_weight="2"
 
             android:orientation="horizontal"
@@ -155,14 +155,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="크리스피버거"></TextView>
+                android:text="맥플러리"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="7000원"></TextView>
+                android:text="2500원"></TextView>
 
 
         </LinearLayout>
@@ -187,11 +187,11 @@
             android:id="@+id/FF_whopper_item4"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/chickencheese_dan"
+            android:src="@drawable/strawberry"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/FF_whopper_item2"
@@ -202,7 +202,7 @@
             android:layout_height="match_parent"
 
             android:layout_weight="2"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -211,14 +211,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="치킨치즈버거"></TextView>
+                android:text="딸기쉐이크"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="6000원"></TextView>
+                android:text="2000원"></TextView>
 
 
         </LinearLayout>

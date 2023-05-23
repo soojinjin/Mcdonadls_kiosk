@@ -20,15 +20,15 @@
             android:id="@+id/FF_premium_item1"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_marginTop="60dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/bulgogi_set"
+            android:src="@drawable/bulgogi"
              />
         <LinearLayout
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="불고기버거 세트"
+                android:text="불고기버거"
                 android:gravity="center"
                 android:layout_weight="1">
             </TextView>
@@ -46,7 +46,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6200원"
+                android:text="2500원"
                 android:gravity="center"
                 android:layout_weight="1">
             </TextView>
@@ -70,19 +70,19 @@
 
         <ImageButton
             android:id="@+id/FF_premium_item2"
-            android:layout_width="160dp"
+            android:layout_width="163dp"
             android:layout_height="160dp"
             android:layout_marginTop="60dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/cheese_set" />
+            android:src="@drawable/sanghai" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="2"
             android:orientation="horizontal"
             android:weightSum="2">
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="치즈버거세트"></TextView>
+                android:text="상하이버거"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
@@ -123,16 +123,16 @@
             android:id="@+id/FF_premium_item3"
             android:layout_width="160dp"
             android:layout_height="160dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/crispy_set" />
+            android:src="@drawable/bigmag" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="84dp"
             android:layout_weight="2"
 
             android:orientation="horizontal"
@@ -143,14 +143,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="크리스피버거"></TextView>
+                android:text="빅맥"></TextView>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="7000원"></TextView>
+                android:text="5500원"></TextView>
 
 
         </LinearLayout>
@@ -171,21 +171,20 @@
 
         <ImageButton
             android:id="@+id/FF_premium_item4"
-            android:layout_width="160dp"
+            android:layout_width="163dp"
             android:layout_height="160dp"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:adjustViewBounds="true"
             android:backgroundTint="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/chickencheese_set"
-            />
+            android:src="@drawable/susu" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             android:layout_weight="2"
-            android:layout_marginEnd="44dp"
+            android:layout_marginEnd="4dp"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -194,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="치킨치즈버거"></TextView>
+                android:text="슈슈버거"></TextView>
 
             <TextView
                 android:layout_width="match_parent"

@@ -9,7 +9,8 @@ import android.widget.ImageButton;
 
 import com.example.kiosk_help_app.alone.fastfood.AloneFastfoodSelectStorePackageActivity;
 
-public class SelectAloneKioskActivity extends AppCompatActivity {
+public class
+SelectAloneKioskActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

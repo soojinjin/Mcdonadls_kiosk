@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
         android:gravity="center"
-        android:text="식사하실 장소를 선택해 주세요!"
+        android:text="식사 장소를 선택해 주세요"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

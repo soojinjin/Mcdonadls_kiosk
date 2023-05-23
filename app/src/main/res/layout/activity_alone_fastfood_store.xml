@@ -13,43 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/alone_ff_sale_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/shape"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:onClick="clickHandler"
-            android:text="스페셜/할인팩" />
-
-        <Button
-            android:textSize="17dp"
-            android:id="@+id/alone_ff_premium_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/shape"
-            android:textStyle="bold"
-            android:onClick="clickHandler"
-            android:text="프리미엄" />
-
-        <Button
-            android:textSize="17dp"
-            android:id="@+id/alone_ff_whopper_btn"
-            android:background="@drawable/shape"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="clickHandler"
-            android:text="와퍼" />
 
 
     </LinearLayout>
@@ -58,32 +25,10 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout1">
-
-        <Button
-            android:id="@+id/alone_ff_drink_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:onClick="clickHandler"
-            android:text="음료" />
-
-        <Button
-            android:id="@+id/alone_ff_side_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape"
-            android:textSize="17dp"
-            android:textStyle="bold"
-            android:onClick="clickHandler"
-            android:layout_weight="1"
-            android:text="디저트" />
 
     </LinearLayout>
 
@@ -97,6 +42,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
+        <Button
+            android:id="@+id/alone_ff_premium_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="clickHandler"
+            android:text="버거"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/alone_ff_sale_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/shape"
+            android:onClick="clickHandler"
+            android:text="해피 스낵"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/alone_ff_whopper_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="clickHandler"
+            android:text="디저트"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_marginTop="150dp"/>
+
+        <Button
+            android:id="@+id/alone_ff_drink_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="clickHandler"
+            android:text="음료"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_marginTop="200dp"/>
+
+        <Button
+            android:id="@+id/alone_ff_side_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape"
+            android:onClick="clickHandler"
+            android:rotation="0"
+            android:text="사이드"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_marginTop="100dp"/>
     </FrameLayout>
 
     <LinearLayout
