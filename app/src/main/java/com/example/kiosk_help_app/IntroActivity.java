@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 
+import com.example.kiosk_help_app.alone.fastfood.AloneFastfoodSelectStorePackageActivity;
+
 public class IntroActivity extends AppCompatActivity {
 
     @Override
