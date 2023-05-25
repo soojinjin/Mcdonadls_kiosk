@@ -71,12 +71,13 @@ public class MainActivity extends AppCompatActivity implements BotReply {
         setContentView(R.layout.activity_main);
         chatView = findViewById(R.id.chatView);
         editMessage = findViewById(R.id.editMessage);
-        chatAdapter = new ChatAdapter(messageList, this);
-        chatView.setAdapter(chatAdapter);
         startbtn = findViewById(R.id.btn_start);
 
+        chatAdapter = new ChatAdapter(messageList, this);
+        chatView.setAdapter(chatAdapter);
 
         editMessage.setVisibility(View.GONE);
+        _tts = new TextToSpeech(this, ttsInitListener);
 
 
         startbtn.setOnClickListener(new View.OnClickListener() {
