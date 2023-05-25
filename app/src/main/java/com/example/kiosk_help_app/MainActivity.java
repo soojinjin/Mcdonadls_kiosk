@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     ImageView imageView;
     int mic_status = 0;
     Handler handler;
-    Button btn_start;
+    Button startbtn;
 
 
     //dialogFlow
@@ -73,17 +73,13 @@ public class MainActivity extends AppCompatActivity implements BotReply {
         editMessage = findViewById(R.id.editMessage);
         chatAdapter = new ChatAdapter(messageList, this);
         chatView.setAdapter(chatAdapter);
-        btn_start = findViewById(R.id.btn_start);
+        startbtn = findViewById(R.id.btn_start);
 
 
-
-
-
-        constraintLayout.setVisibility(View.VISIBLE);
         editMessage.setVisibility(View.GONE);
 
 
-        btn_start.setOnClickListener(new View.OnClickListener() {
+        startbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AloneFastfoodSelectStorePackageActivity.class);
@@ -239,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements BotReply {
                     messageList.add(new Message(result.get(0).toString(),false));
                     Log.v(TAG, "result: "+result.get(0));
                     if(result.get(0).equals("네")){
-                        btn_start.performClick();
+                        startbtn.performClick();
                     }
                     sendMessageToBot(result.get(0));
                     Objects.requireNonNull(chatView.getAdapter()).notifyDataSetChanged(); //chatview에서 데이터 변환확인
