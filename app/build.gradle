@@ -2,11 +2,15 @@ plugins {
     id 'com.android.application'
 }
 
+
+
 android {
     compileSdk 31
 
     packagingOptions{
         resources.excludes.add("META-INF/*")
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
     }
 
     defaultConfig {
@@ -15,6 +19,8 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

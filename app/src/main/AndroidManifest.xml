@@ -3,6 +3,7 @@
     package="com.example.kiosk_help_app">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,28 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kiosk_help_app">
 
-        <activity
-            android:name=".timetable.TransferReservationInfoActivity"
-            android:exported="true"
-            android:theme="@android:style/Theme.Dialog" />
 
-        <activity
-            android:name=".copying.fastfood.CopyingFastfoodSelectStorePackageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".copying.fastfood.CopyingFastfoodStoreActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".timetable.selectSeatAndPayActivitiy"
-            android:exported="true"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".timetable.SeatTableActivity"
-            android:exported="true" />
-        <activity
-            android:name=".timetable.TransferGangneungTimetableActivity"
-            android:exported="true" />
         <activity
             android:name=".PayCheckActivity"
             android:exported="true"
@@ -47,11 +27,6 @@
             android:name=".SelectAloneKioskActivity"
             android:exported="true" />
         <activity
-            android:name=".SelectKiosk"
-            android:exported="true"
-            android:label="@string/title_activity_select_kiosk"
-            android:theme="@style/Theme.Kiosk_help_app.NoActionBar" /> <!-- 앱을 실행시켰을때 temp 화면을 위한 코드 intent 로 만든다. -->
-        <activity
             android:name=".IntroActivity"
             android:exported="true">
             <intent-filter>
@@ -64,5 +39,10 @@
             android:name=".MainActivity"
             android:exported="true" />
     </application>
+    <queries>
+    <intent>
+        <action android:name="android.intent.action.TTS_SERVICE" />
+    </intent>
+    </queries>
 
 </manifest>

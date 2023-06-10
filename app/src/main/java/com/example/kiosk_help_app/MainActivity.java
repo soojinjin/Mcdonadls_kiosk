@@ -1,8 +1,10 @@
 package com.example.kiosk_help_app;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -16,13 +18,14 @@ import android.view.View;
 import android.widget.Button;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.kiosk_help_app.adapters.ChatAdapter;
-import com.example.kiosk_help_app.alone.fastfood.AloneFastfoodStoreActivity;
 import com.example.kiosk_help_app.helpers.SendMessageInBg;
 import com.example.kiosk_help_app.interfaces.BotReply;
 import com.example.kiosk_help_app.models.Message;
@@ -56,245 +59,218 @@ public class MainActivity extends AppCompatActivity implements BotReply {
     ImageView imageView;
     int mic_status = 0;
     Handler handler;
-    Button startbtn;
+    Button btn_start;
+    ImageButton btnSend;
+    Button voiceButton;
 
 
     //dialogFlow
     private SessionsClient sessionsClient;
     private SessionName sessionName; // session name은uuid와project id를 사용
     private String uuid = UUID.randomUUID().toString(); //유일한 식별자 생성
-    private String TAG = "mainactivity"; //현재 사용하는 클래스에tag상수 선언 규칙
-    SpeechRecognizer sttrec = SpeechRecognizer.createSpeechRecognizer(this);
+    private String TAG = "Mainactivity"; //현재 사용하는 클래스에tag상수 선언 규칙
+
+    private String command ="default";
+    private int cntTime =0;
+
+    final int PERMISSION =1;
+    RecognitionListener listener;
+    SpeechRecognizer mRecognizer;
+    Intent intent;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         chatView = findViewById(R.id.chatView);
         editMessage = findViewById(R.id.editMessage);
-        startbtn = findViewById(R.id.btn_start);
+        btn_start = findViewById(R.id.btn_start);
+        constraintLayout = findViewById(R.id.constraintLayout);
+        btnSend = findViewById(R.id.btnSend);
+        voiceButton=findViewById(R.id.voiceButton);
 
         chatAdapter = new ChatAdapter(messageList, this);
         chatView.setAdapter(chatAdapter);
 
-        editMessage.setVisibility(View.GONE);
-        _tts = new TextToSpeech(this, ttsInitListener);
+        editMessage.setVisibility(View.VISIBLE);
 
 
-        startbtn.setOnClickListener(new View.OnClickListener() {
+
+        //퍼미션 체크( 인터넷, 오디오)
+        if (Build.VERSION.SDK_INT >= 23) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET,
+                    Manifest.permission.RECORD_AUDIO}, PERMISSION);
+        }
+
+//RecognizerIntent 객체 생성
+        intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getPackageName());
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko_KR");
+
+
+
+    voiceButton.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick (View v){
+            mRecognizer = SpeechRecognizer.createSpeechRecognizer(getApplicationContext());
+            mRecognizer.setRecognitionListener(listener);
+            mRecognizer.startListening(intent);
+        }
+    });
+        btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AloneFastfoodSelectStorePackageActivity.class);
-                startActivity(intent);
+            public void onClick(View view){
+            Intent intent = new Intent(getApplicationContext(), AloneFastfoodSelectStorePackageActivity.class);
+            startActivity(intent);
+        }
+        });
+
+        listener = new RecognitionListener() {
+            @Override
+            public void onRmsChanged(float rmsdB) {
+// TODO Auto-generated method stub
+
+            }
+            @Override
+            public void onResults(Bundle results) {
+// TODO Auto-generated method stub
+                // 아래 코드는 음성인식된 결과를ArrayList로 모아옵니다.
+                ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                String result="";
+                // 이후for문으로textView에setText로 음성인식된 결과를 수정해줍니다.
+                for (int i = 0; i < matches.size(); i++) {
+                    result=matches.get(i);
+                }
+                Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+
+                //command 를default로 설정
+                setCommand("default");
+                if (!result.isEmpty()) {
+//메시지를 담아sendMessageToBot() 호출
+                    sendMessageToBot(result);
+                }
+            }
+            @Override
+            public void onReadyForSpeech (Bundle params){
+// TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onPartialResults (Bundle partialResults){
+// TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onEvent ( int eventType, Bundle params){
+// TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onError ( int error){
+// TODO Auto-generated method stub
+                String message;
+
+                switch (error) {
+                    case SpeechRecognizer.ERROR_AUDIO:
+                        message = "오디오 에러";
+                        break;
+                    case SpeechRecognizer.ERROR_CLIENT:
+                        message = "클라이언트 에러";
+                        break;
+                    case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
+                        message = "퍼미션 없음";
+                        break;
+                    case SpeechRecognizer.ERROR_NETWORK:
+                        message = "네트워크 에러";
+                        break;
+                    case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
+                        message = "네트웍 타임아웃";
+                        break;
+                    case SpeechRecognizer.ERROR_NO_MATCH:
+                        message = "찾을 수 없음";
+                        break;
+                    case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
+                        message = "RECOGNIZER가 바쁨";
+                        break;
+                    case SpeechRecognizer.ERROR_SERVER:
+                        message = "서버가 이상함";
+                        break;
+                    case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
+                        message = "말하는 시간초과";
+                        break;
+                    default:
+                        message = "알 수 없는 오류임";
+                        break;
+                }
+
+                Toast.makeText(getApplicationContext(), "에러가 발생하였습니다. : " + message, Toast.LENGTH_SHORT).show();
+
+
+            }
+
+            @Override
+            public void onEndOfSpeech () {
+// TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onBufferReceived ( byte[] buffer){
+// TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onBeginningOfSpeech () {
+// TODO Auto-generated method stub
+
+            }
+        };
+
+
+
+
+        btnSend.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View v){
+//command 를default로 설정
+                setCommand("default");
+
+                String message = editMessage.getText().toString();
+                if (!message.isEmpty()) {
+//UI or something to do Task
+                    editMessage.setText("");
+                    //메시지를 담아sendMessageToBot() 호출
+                    sendMessageToBot(message);
+                } else {
+                    Toast.makeText(MainActivity.this, "보낼 내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
+        //main Thread에서만UI 작업을 할 수 있으므로Handler설정
+        boolean handler = new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+//UI THREAD CODE HERE
+                Toast.makeText(MainActivity.this, "따르릉~ 알람시간이 되었습니다. 알람 쿼리를 가져옵니다!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+        //dialogflowAgent key정보Setup
         setUpBot();
     }
 
-    private TextToSpeech.OnInitListener ttsInitListener = new TextToSpeech.OnInitListener() //시작할떄 사용되는listnenr
-    {
-        @Override
-        public void onInit(int status)
-        {
-            if (status == TextToSpeech.SUCCESS) {
-                _tts.setOnUtteranceProgressListener(completedListener);
-            }
-            else{
-                return;
-            }
-
-
-        }
-    };
-    private UtteranceProgressListener completedListener = new UtteranceProgressListener() {
-        @SuppressLint("LongLogTag")
-        @Override
-        public void onStart(String utteranceId) {
-            Log.i("MainActivity.java | UtteranceProgressListener", "|" + "new system TTS speak start" + "|");
-
-        }
-
-        @SuppressLint("LongLogTag")
-        @Override
-        public void onDone(String utteranceId) {
-
-            Log.i("MainActivity.java | UtteranceProgressListener", "|" + "new system TTS speak complete" + "|");
-
-            setHandler();
-        }
-
-        @Override
-        public void onError(String utteranceId) {
-
-        }
-    };
-    public void setHandler(){
-        handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                sttRecog();
-            }
-        }, 30);
-    }
-
-    public void sttRecog(){
-        switch (mic_status){
-            case 0:
-            case 2:
-                mic_status = 1;
-                inputVoice();
-                break;
-            case 1:
-                mic_status = 0;
-                sttrec.destroy();
-                break;
-        }
-
-    }
-    //이건 아마stt 음성인식 기능에서 제공해주는 것
-    public void inputVoice() {
-        Log.d("inputVoice", "in function");
-        try {
-
-            Intent intentSTT = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intentSTT.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, this.getPackageName());
-            intentSTT.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR");
-            sttrec = SpeechRecognizer.createSpeechRecognizer(this);
-            sttrec.setRecognitionListener(new RecognitionListener() {
-                @Override
-                public void onReadyForSpeech(Bundle params) {
-                }
-
-                @Override
-                public void onBeginningOfSpeech() {
-                    Log.d("STTstart", "start here");
-                }
-
-                @Override
-                public void onRmsChanged(float rmsdB) {
-
-                }
-
-                @Override
-                public void onBufferReceived(byte[] buffer) {
-
-                }
-
-                @Override
-                public void onEndOfSpeech() {
-// toast("음성입력종료");
-                    Log.d("STTend", "end here");
-                }
-
-                @Override
-                public void onError(int error) {
-                    String message;
-                    switch (error) {
-                        case SpeechRecognizer.ERROR_AUDIO:
-                            message = "오디오 에러";
-                            break;
-                        case SpeechRecognizer.ERROR_CLIENT:
-                            message = "클라이언트 에러";
-                            break;
-                        case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS:
-                            message = "퍼미션 없음";
-                            break;
-                        case SpeechRecognizer.ERROR_NETWORK:
-                            message = "네트워크 에러";
-                            break;
-                        case SpeechRecognizer.ERROR_NETWORK_TIMEOUT:
-                            message = "네트웍 타임아웃";
-                            break;
-                        case SpeechRecognizer.ERROR_NO_MATCH:
-                            message = "찾을 수 없음";
-                            speakResponse("다시 한번 말씀해주세요");
-                            mic_status = 0;
-                            break;
-                        case SpeechRecognizer.ERROR_RECOGNIZER_BUSY:
-                            message = "RECOGNIZER가 바쁨";
-                            break;
-                        case SpeechRecognizer.ERROR_SERVER:
-                            message = "서버가 이상함";
-                            break;
-                        case SpeechRecognizer.ERROR_SPEECH_TIMEOUT:
-                            message = "말하는 시간초과";
-                            break;
-                        default:
-                            message = "알 수 없는 오류임";
-                            break;
-                    }
-
-
-                    Log.d("onError", "error : "+message);
-                    mic_status = 1;
-                    sttrec.destroy();
-                }
-                @Override
-                public void onResults(Bundle results) {
-                    ArrayList<String> result = (ArrayList<String>) results.get(sttrec.RESULTS_RECOGNITION);
-                    editMessage.setText( result.get(0) + "\n");
-                    messageList.add(new Message(result.get(0).toString(),false));
-                    Log.v(TAG, "result: "+result.get(0));
-                    if(result.get(0).equals("네")){
-                        startbtn.performClick();
-                    }
-                    sendMessageToBot(result.get(0));
-                    Objects.requireNonNull(chatView.getAdapter()).notifyDataSetChanged(); //chatview에서 데이터 변환확인
-                    Objects.requireNonNull(chatView.getLayoutManager())
-                            .scrollToPosition(messageList.size() - 1);
-                    mic_status = 2;
-                    sttrec.destroy();
-                    //onListeningCompleted();
-                }
-
-                @Override
-                public void onPartialResults(Bundle partialResults) {
-
-                }
-
-                @Override
-                public void onEvent(int eventType, Bundle params) {
-
-                }
-            });
-            sttrec.startListening(intentSTT);
-            new CountDownTimer(3000,1000){
-                public void onTick(long m){
-                }
-                public void onFinish(){
-                    sttrec.stopListening();
-                }
-            }.start();
-
-
-        }
-        catch (Exception e) {
-            Log.e(TAG, e.toString() +" 에러메세지");
-// Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
-        }
-    }
-
-
-
-
-    // 한번 받은 말이 넘어가나 시험
-    @SuppressLint("LongLogTag")
-    private void speakResponse(String botReply) {
-        mic_status = 0;
-        Log.i("MainActivity.java | speak", "|System TTS speak|" + botReply + "|");
-        HashMap<String, String> map = new HashMap<>();
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "messageID");
-        try {
-            _tts.speak(botReply, TextToSpeech.QUEUE_FLUSH, map);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        sttRecog();
-    }
-
-
-
-    private void setUpBot() {
+    //credential(GoogleService 자격 증명서) 파일을 통해session 설정
+    private void setUpBot () {
         try {
             InputStream stream = this.getResources().openRawResource(R.raw.credential);
             GoogleCredentials credentials = GoogleCredentials.fromStream(stream)
@@ -313,18 +289,16 @@ public class MainActivity extends AppCompatActivity implements BotReply {
         }
     }
 
-    // message 를 봇에게 보내는 역할을 한다
-    private void sendMessageToBot(String message) {
+    //dialogflow로message를 보내는 메서드
+    private void sendMessageToBot (String message){
         QueryInput input = QueryInput.newBuilder()
                 .setText(TextInput.newBuilder().setText(message).setLanguageCode("ko-KR")).build();
         new SendMessageInBg(this, sessionName, sessionsClient, input).execute();
     }
 
-
-
-    //답변을 가져오는 부분
     @Override
-    public void callback(DetectIntentResponse returnResponse) {
+    public void callback (DetectIntentResponse returnResponse){
+//dialogflowAgent와 통신 성공한 경우
         if(returnResponse!=null) {
             String botReply = returnResponse.getQueryResult().getFulfillmentText();
             if(!botReply.isEmpty()){
@@ -338,4 +312,11 @@ public class MainActivity extends AppCompatActivity implements BotReply {
             Toast.makeText(this, "failed to connect!", Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void setCommand (String command){
+        this.command = command;
+    }
+
 }
+
+
